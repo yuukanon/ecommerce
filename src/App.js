@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import Navbar from './components/Navbar';
+import ProductList from './components/ProductList';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      products: [],
+      totalPrice: 0, 
+    }
+  }
+
+  componentDidMount() {
+    fetch (`https://floating-temple-56492.herokuapp.com/products`)
+      .then(res => res.json())
+      .then(data => this.setState({ products: data }))
+  }
+  render () {
+    const { products, totalPrice } = this.state
+    return (
+      <div className="App">
+        <Navbar totalPrice={totalPrice} />
+        <ProductList products={products} />
+      </div>
+    );
+  }
 }
 
 export default App;
+
+
+// https://floating-temple-56492.herokuapp.com/products
