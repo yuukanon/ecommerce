@@ -1,5 +1,6 @@
 import React from "react";
-import ReactStars from "./react-rating-stars-component";
+import ReactStars from "react-rating-stars-component";
+
 
 
 const ProductCard = ({productInfo}) => {
@@ -9,7 +10,7 @@ const ProductCard = ({productInfo}) => {
     <div>
       <img src={productInfo.product_image} alt=""/>
       <p>{productInfo.product_title}</p>
-      <p>"$" {productInfo.product_price}</p>
+      <p>{productInfo.product_price}</p>
       <ReactStars 
         count={5}
         rating={productInfo.product_rating} />
