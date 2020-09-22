@@ -12,7 +12,7 @@ const Navbar = ({totalPrice}) => {
           <Link to='/cart'><li>Cart</li></Link>
         </div>
         <div className="navPrice">
-          <li>Total Price: 0{totalPrice}</li>
+          <li>Total Price: {totalPrice} Bottlecaps</li>
         </div>
       </ul>
     </div>

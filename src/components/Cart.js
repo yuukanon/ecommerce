@@ -1,8 +1,11 @@
 import React from "react";
+import CartItem from "./CartItem";
 
-const Cart = () => {
+const Cart = ({cartArray}) => {
   return(
-    <div></div>
+    <div>
+      {cartArray.map(cartItem => <CartItem product={cartItem} />)}
+    </div>
   )
 }
 

@@ -4,7 +4,6 @@ import StarRatings from 'react-star-ratings';
 
 
 const ProductCard = ({productInfo}) => {
-  console.log(productInfo)
   
   return (
     <div className="productCard">
@@ -13,7 +12,7 @@ const ProductCard = ({productInfo}) => {
         <p>{productInfo.product_price} Bottlecaps</p>
         <StarRatings 
           rating={productInfo.product_rating} 
-          starRatedColor="yellow"
+          starRatedColor="green"
           starDimension="20px"
         />
     </div>
