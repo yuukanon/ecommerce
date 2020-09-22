@@ -1,19 +1,21 @@
 import React from "react";
-import ReactStars from "react-rating-stars-component";
+import StarRatings from 'react-star-ratings';
 
 
 
 const ProductCard = ({productInfo}) => {
-  // console.log(productInfo)
+  console.log(productInfo)
   
   return (
-    <div>
+    <div className="productCard">
       <img src={productInfo.product_image} alt=""/>
-      <p>{productInfo.product_title}</p>
-      <p>{productInfo.product_price}</p>
-      <ReactStars 
-        count={5}
-        rating={productInfo.product_rating} />
+        <p>{productInfo.product_title}</p>
+        <p>{productInfo.product_price} Bottlecaps</p>
+        <StarRatings 
+          rating={productInfo.product_rating} 
+          starRatedColor="yellow"
+          starDimension="20px"
+        />
     </div>
   )
 }
