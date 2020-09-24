@@ -9,7 +9,7 @@ const ProductCard = ({productInfo}) => {
     <div className="productCard">
       <img src={productInfo.product_image} alt=""/>
         <p>{productInfo.product_title}</p>
-        <p>{productInfo.product_price} Bottlecaps</p>
+        <p>{productInfo.product_price} Euro</p>
         <StarRatings 
           rating={productInfo.product_rating} 
           starRatedColor="green"

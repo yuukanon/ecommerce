@@ -32,7 +32,7 @@ const ProductDescription = ({routeProps, products, handleAddToCart}) => {
           <div className='productDescription'>
             <h1>{matchProduct.product_title}</h1>
             <p>{matchProduct.product_description}</p>
-            <p>{matchProduct.product_price} Bottlecaps</p>
+            <p>{matchProduct.product_price} Euro</p>
             <button onClick={handleClick}>Add to Cart</button>
             <ToastContainer
               position="bottom-right"

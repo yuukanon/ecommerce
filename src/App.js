@@ -25,31 +25,39 @@ class App extends Component {
   }
 
   handleAddToCart = (clickedItem) => {
-    const { cartArray } = this.state
+    const { cartArray, totalPrice } = this.state
 
     let isInCart = cartArray.find(item => clickedItem.id === item.id);
 
     if (isInCart) {
       isInCart.quantity++
     } else {
-      isInCart = {...clickedItem, quantity: 1}
+      isInCart = {...clickedItem, quantity: 1}      
+      this.setState({ cartArray: [...cartArray, isInCart] })
     }
 
     this.setState({
-      cartArray: [...this.state.cartArray, clickedItem],
-      totalPrice: this.state.totalPrice + clickedItem.product_price
+      totalPrice: totalPrice + clickedItem.product_price
+    })
+
+  }
+
+  handleClearCart = () => {
+    this.setState({
+      cartArray: [],
+      totalPrice: 0
     })
   }
 
   render () {
-    console.log(this.state.cartArray)
+    // console.log(this.state.cartArray)
     const { products, totalPrice, cartArray } = this.state
     return (
       <div className="App">
          <Navbar totalPrice={totalPrice} />
           <Switch>
             <Route exact path='/' render={() => <Home products={products}/>} />
-            <Route path='/cart' render={() => <Cart totalPrice={totalPrice} cartArray={cartArray} />} />
+            <Route path='/cart' render={() => <Cart handleClearCart={this.handleClearCart} totalPrice={totalPrice} cartArray={cartArray} />} />
             <Route path='/product/:id' render={(routeProps) => <ProductDescription handleAddToCart={this.handleAddToCart} routeProps={routeProps} products={products}/>}/>
           </Switch>
          
